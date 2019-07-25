@@ -2,6 +2,12 @@ pipeline {
   agent none
   stages {
     stage('build') {
+      agent {
+        node {
+          label 'sirg'
+        }
+
+      }
       steps {
         echo 'this is a build step'
       }
