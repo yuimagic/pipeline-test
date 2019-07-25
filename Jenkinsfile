@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'sirg'
-    }
-
-  }
+  agent none
   stages {
     stage('build') {
       steps {
