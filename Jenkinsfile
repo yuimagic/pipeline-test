@@ -6,10 +6,23 @@ pipeline {
         echo 'this is a build step'
       }
     }
+
     stage('test') {
-      steps {
-        echo 'this is a test step'
+      parallel {
+        stage('test') {
+          steps {
+            echo 'this is a test step'
+          }
+        }
+
+        stage('test1') {
+          steps {
+            echo 'it is test1'
+          }
+        }
+
       }
     }
+
   }
 }
