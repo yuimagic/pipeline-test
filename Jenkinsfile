@@ -1,28 +1,24 @@
 pipeline {
-  agent any
-  stages {
-    stage('build') {
-      steps {
-        echo 'this is a build step'
+   agent any
+
+   stages {
+      stage('build_Init') {
+         steps {
+            echo 'build init step'
+         }
       }
-    }
-
-    stage('test') {
-      parallel {
-        stage('test') {
-          steps {
-            echo 'this is a test step'
-          }
-        }
-
-        stage('test1') {
-          steps {
-            echo 'it is test1'
-          }
-        }
-
+      
+       stage('build') {
+         steps {
+            echo 'build step'
+         }
       }
-    }
-
-  }
+      
+       stage('test') {
+         steps {
+            echo 'test step'
+         }
+      }
+      
+   }
 }
